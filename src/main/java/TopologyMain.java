@@ -1,4 +1,3 @@
-
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
 import org.apache.storm.StormSubmitter;
@@ -7,6 +6,9 @@ import org.apache.storm.utils.Utils;
 import spouts.FlightsDataReader;
 import bolts.HubIdentifier;
 
+/**
+ *  Topology.
+ */
 public class TopologyMain {
 
     public static void main(String[] args) throws Exception {
