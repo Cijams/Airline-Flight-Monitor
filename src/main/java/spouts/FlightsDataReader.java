@@ -7,10 +7,26 @@ import org.apache.storm.topology.base.BaseRichSpout;
 import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Values;
 import org.apache.storm.utils.Utils;
+
+import java.io.*;
 import java.util.Map;
 
+/**
+ * The spout.
+ */
 public class FlightsDataReader extends BaseRichSpout {
     private SpoutOutputCollector collector;
+    private String msg = "";
+
+    public FlightsDataReader() {
+        try {
+            BufferedReader br = new BufferedReader(
+                    new FileReader("src/main/resources/flights.txt"));
+            msg = br.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
         declarer.declare(new Fields("hello"));
@@ -22,6 +38,6 @@ public class FlightsDataReader extends BaseRichSpout {
 
     public void nextTuple() {
         Utils.sleep(1000);
-        collector.emit(new Values("Hello"));
+        collector.emit(new Values(msg));
     }
 }

@@ -13,10 +13,9 @@ public class TopologyMain {
 
     public static void main(String[] args) throws Exception {
         TopologyBuilder builder = new TopologyBuilder();
-        builder.setSpout("Hello", new FlightsDataReader(), 12);
-        builder.setBolt("World", new HubIdentifier(), 12).shuffleGrouping("Hello");
-        builder.setBolt("WorldTwo", new HubIdentifier(), 12).shuffleGrouping("World");
-        builder.setBolt("WorldThree", new HubIdentifier(), 12).shuffleGrouping("WorldTwo");
+        builder.setSpout("FlightData", new FlightsDataReader(), 12);
+        builder.setBolt("HubID", new HubIdentifier(), 12).shuffleGrouping("FlightData");
+        builder.setBolt("AirlineSort", new HubIdentifier(), 12).shuffleGrouping("HubID");
 
         Config config = new Config();
         config.setDebug(true);
@@ -29,9 +28,9 @@ public class TopologyMain {
             StormSubmitter.submitTopology(args[0], config, builder.createTopology());
         } else {
             LocalCluster cluster = new LocalCluster();
-            cluster.submitTopology("Hello-World", config, builder.createTopology());
+            cluster.submitTopology("Flight-Process", config, builder.createTopology());
             Utils.sleep(10000);
-            cluster.killTopology("Hello-World");
+            cluster.killTopology("Flight-Process");
             cluster.shutdown();
         }
     }
