@@ -1,37 +1,56 @@
+/**
+ *  Christopher Ijams
+ *  Airline Flight Monitor
+ *
+ *  Project tracks the top 40 Airports in the U.S. and scans in real-time
+ *  the location of airplanes within 20 miles to determine the number
+ *  of flights current leaving or incoming to each airport. Project
+ *  receives data from the Open Sky Network for research purposes.
+ *
+ *  Project makes use of Apache Spark to expedite data processing.
+ */
+
+import bolts.AirlineSorter;
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
-import org.apache.storm.StormSubmitter;
 import org.apache.storm.topology.TopologyBuilder;
 import org.apache.storm.utils.Utils;
 import spouts.FlightsDataReader;
 import bolts.HubIdentifier;
 
 /**
- *  Topology.
+ *  Determines the topology of the the Apache Spark network.
+ *
+ *  Current Layout:
+ *      Spout: FlightsDataReader reads data from "flights.txt" and emits to Bolt: HubIdentifier.
+ *      Bolt: HubIdentifier reads from Spout: FlightDataReader and emits to Bolt: AirlineSorter.
+ *      Bolt: AirlineSorter reads from Bolt: HubIdentifier and closes.
  */
 public class TopologyMain {
-
-    public static void main(String[] args) throws Exception {
+    /**
+     * @param args - [0] The flight data.
+     *             - [1] The airport list.
+     */
+    public static void main(String[] args)  {
         TopologyBuilder builder = new TopologyBuilder();
-        builder.setSpout("FlightData", new FlightsDataReader(), 12);
-        builder.setBolt("HubID", new HubIdentifier(), 12).shuffleGrouping("FlightData");
-        builder.setBolt("AirlineSort", new HubIdentifier(), 12).shuffleGrouping("HubID");
+        builder.setSpout("flight-data-reader", new FlightsDataReader(), 12);
+        builder.setBolt("hub-identifier", new HubIdentifier(), 12)
+                .shuffleGrouping("flight-data-reader");
+        builder.setBolt("airline-sorter", new AirlineSorter(), 12)
+                .shuffleGrouping("hub-identifier");
 
+        // Config sets files and low output debugging mode.
         Config config = new Config();
-        config.setDebug(true);
+        config.put("FlightsData", args[0]);
+        config.put("AirportsData", args[1]);
+        config.setDebug(false);
+        config.put(Config.TOPOLOGY_MAX_SPOUT_PENDING, 1);
 
-        if (args != null && args.length > 0) {
-            config.setNumWorkers(6);
-            config.setNumAckers(6);
-            config.setMaxSpoutPending(100);
-            config.setMessageTimeoutSecs(20);
-            StormSubmitter.submitTopology(args[0], config, builder.createTopology());
-        } else {
-            LocalCluster cluster = new LocalCluster();
-            cluster.submitTopology("Flight-Process", config, builder.createTopology());
-            Utils.sleep(10000);
-            cluster.killTopology("Flight-Process");
-            cluster.shutdown();
-        }
+        // Currently set for local cluster.
+        LocalCluster cluster = new LocalCluster();
+        cluster.submitTopology("Flight-Process", config, builder.createTopology());
+        Utils.sleep(10000);
+        cluster.killTopology("Flight-Process");
+        cluster.shutdown();
     }
 }
