@@ -47,7 +47,6 @@ public class FlightsDataReader extends BaseRichSpout {
             obj = new JSONParser().parse(new FileReader((config.get("FlightsData").toString())));
             JSONObject jo = (JSONObject) obj;
             flight = (JSONArray) jo.get("states");
-            msg = flight.get(0)+"";
         } catch (Exception e ) {
             e.printStackTrace();
         }
