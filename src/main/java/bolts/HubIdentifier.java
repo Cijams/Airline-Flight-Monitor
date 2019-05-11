@@ -123,10 +123,10 @@ public class HubIdentifier extends BaseBasicBolt {
                                             String latitude2S, String longitude2S) {
         int minutes = 60;
         double toNauticalMiles = 1.1515;
+        double ParseFailureCode = 99999;
         try {
             double latitude1 = Double.parseDouble(latitude1S);
             double latitude2 = Double.parseDouble(latitude2S);
-
             double longitude1 = Double.parseDouble(longitude1S);
             double longitude2 = Double.parseDouble(longitude2S);
 
@@ -137,9 +137,8 @@ public class HubIdentifier extends BaseBasicBolt {
                     Math.cos(Math.toRadians(latitude1)) * Math.cos(Math.toRadians(latitude2)) *
                             Math.cos(Math.toRadians(difference));
             return (Math.toDegrees(Math.acos(dist)) * minutes * toNauticalMiles);
-
         } catch (Exception e) {
-            return 900;
+            return ParseFailureCode;
         }
     }
 }

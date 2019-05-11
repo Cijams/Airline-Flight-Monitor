@@ -37,10 +37,10 @@ public class TopologyMain {
      */
     public static void main(String[] args)  {
         TopologyBuilder builder = new TopologyBuilder();
-        builder.setSpout("flight-data-reader", new FlightsDataReader(), 12);
-        builder.setBolt("hub-identifier", new HubIdentifier(), 12)
+        builder.setSpout("flight-data-reader", new FlightsDataReader(), 3);
+        builder.setBolt("hub-identifier", new HubIdentifier(), 6)
                 .shuffleGrouping("flight-data-reader");
-        builder.setBolt("airline-sorter", new AirlineSorter(), 12)
+        builder.setBolt("airline-sorter", new AirlineSorter(), 6)
                 .shuffleGrouping("hub-identifier");
 
         // Config sets files and low output debugging mode.
@@ -53,7 +53,7 @@ public class TopologyMain {
         // Currently set for local cluster.
         LocalCluster cluster = new LocalCluster();
         cluster.submitTopology("Flight-Process", config, builder.createTopology());
-        Utils.sleep(10000);
+        Utils.sleep(25000);
         cluster.killTopology("Flight-Process");
         cluster.shutdown();
     }

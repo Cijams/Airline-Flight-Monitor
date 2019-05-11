@@ -1,51 +1,55 @@
-Chicago MDW "UAL516  " | 10
-Phoenix PHX "N35325  " | 10
-Atlanta ATL "SWA3038 " | 10
-Chicago MDW "UAL953  " | 10
-San Diego SAN "N959CR  " | 10
-Houston IAH "AAL2630 " | 10
-Seattle SEA "N9537Q  " | 10
-San Diego SAN "AAL897  " | 10
-Dallas-Fort Worth DFW "UAL812  " | 10
-Philadelphia PHL "DLH460  " | 10
-Houston IAH "DLH440  " | 10
-New York JFK "SWR2GN  " | 10
-Houston IAH "UAL1059 " | 10
-Orlando MCO "N7ZK    " | 10
-Los Angeles LAX "ANA175  " | 10
-Los Angeles LAX "AAL1228 " | 10
-Kansas City MCI "N40616  " | 10
-Fort Lauderdale FLL "JBU2518 " | 10
-Phoenix PHX "SWA5302 " | 10
-Seattle SEA "N2365C  " | 10
-San Francisco SFO "DAL1591 " | 10
-Newark EWR "EDV3295 " | 10
-Las Vegas LAS "N910KG  " | 10
-Minneapolis MSP "SKW4026 " | 10
-Phoenix PHX "SWA3017 " | 10
-Nashville BNA "JIA5421 " | 10
-Miami MIA "N1393U  " | 10
-Minneapolis MSP "N6318S  " | 10
-Charlotte CLT "AAL1331 " | 10
-Detroit DTW "FDX3012 " | 10
-New York JFK "DAL2914 " | 10
-Seattle SEA "QXE2915 " | 10
-Denver DEN "UAL2279 " | 10
-Seattle SEA "DLH490  " | 10
-Denver DEN "SKW5853 " | 10
-Fort Lauderdale FLL "NKS262  " | 10
-Las Vegas LAS "AAL4    " | 10
-Honolulu HNL "N11QZ   " | 10
-Tampa TPA "AAL2001 " | 10
-Charlotte CLT "AAL881  " | 10
-Fort Lauderdale FLL "NKS419  " | 10
-Honolulu HNL "N11QX   " | 10
-Chicago MDW "UAL614  " | 10
-Fort Lauderdale FLL "SWA2792 " | 10
-Orlando MCO "SWA1606 " | 10
-Orlando MCO "SWA1606 " | 10
-Sacramento SMF "SWA4646 " | 10
-Philadelphia PHL "ASH6319 " | 10
-Newark EWR "UAL577  " | 10
-Denver DEN "SWA2826 " | 10
-Honolulu HNL "JAL784  " | 10
+Chicago MDW UAL
+Phoenix PHX N35
+Atlanta ATL SWA
+Chicago MDW UAL
+San Diego SAN N95
+Houston IAH AAL
+Seattle SEA N95
+San Diego SAN AAL
+Dallas-Fort Worth DFW UAL
+Philadelphia PHL DLH
+Houston IAH DLH
+New York JFK SWR
+Houston IAH UAL
+Orlando MCO N7Z
+Los Angeles LAX ANA
+Los Angeles LAX AAL
+Kansas City MCI N40
+Fort Lauderdale FLL JBU
+Phoenix PHX SWA
+Seattle SEA N23
+San Francisco SFO DAL
+Newark EWR EDV
+Las Vegas LAS N91
+Minneapolis MSP SKW
+Phoenix PHX SWA
+Miami MIA N13
+Nashville BNA JIA
+Minneapolis MSP N63
+Charlotte CLT AAL
+Detroit DTW FDX
+New York JFK DAL
+Seattle SEA QXE
+Denver DEN UAL
+Seattle SEA DLH
+Denver DEN SKW
+Fort Lauderdale FLL NKS
+Las Vegas LAS AAL
+Honolulu HNL N11
+Tampa TPA AAL
+Charlotte CLT AAL
+Fort Lauderdale FLL NKS
+Honolulu HNL N11
+Chicago MDW UAL
+Fort Lauderdale FLL SWA
+Orlando MCO SWA
+Sacramento SMF SWA
+Philadelphia PHL ASH
+Newark EWR UAL
+Denver DEN SWA
+Honolulu HNL JAL
+Las Vegas LAS N23
+San Diego SAN AAL
+Austin AUS SWA
+Raleigh/Durham RDU DAL
+Fort Lauderdale FLL N17
