@@ -1,5 +1,10 @@
 package spouts;
 
+/*
+ *  Christopher Ijams
+ *  FlightsDataReader
+ */
+
 import org.apache.storm.shade.org.json.simple.JSONArray;
 import org.apache.storm.shade.org.json.simple.JSONObject;
 import org.apache.storm.shade.org.json.simple.parser.JSONParser;
@@ -47,7 +52,7 @@ public class FlightsDataReader extends BaseRichSpout {
     }
 
     /**
-     * Used to establish what the spouts output will be.
+     * Used to establish spout output within the topology.
      *
      * @param declarer output field.
      */
