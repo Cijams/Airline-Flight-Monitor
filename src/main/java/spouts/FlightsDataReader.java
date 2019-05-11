@@ -82,7 +82,7 @@ public class FlightsDataReader extends BaseRichSpout {
      * HubIdentifier indefinitely.
      */
     public void nextTuple() {
-        Utils.sleep(1000);
+        Utils.sleep(50);
         String msg = flight.get(counter++)+"";
         collector.emit(new Values(msg));
     }

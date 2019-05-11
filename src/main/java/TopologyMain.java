@@ -32,8 +32,8 @@ public class TopologyMain {
      * @param args - [0] The flight data. Pull from 'get_flights_data.sh'
      *
      *             - [1] The airport list. Dataset of the top 40 US airports.
-     *      *            Includes each airport's city name, IATA code,
-     *      *            latitude and longitude.
+     *                   Includes each airport's city name, IATA code,
+     *                   latitude and longitude.
      */
     public static void main(String[] args)  {
         TopologyBuilder builder = new TopologyBuilder();
