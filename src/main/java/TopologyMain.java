@@ -1,13 +1,14 @@
-/**
+/*
  *  Christopher Ijams
  *  Airline Flight Monitor
  *
- *  Project tracks the top 40 Airports in the U.S. and scans in real-time
- *  the location of airplanes within 20 miles to determine the number
- *  of flights current leaving or incoming to each airport. Project
- *  receives data from the Open Sky Network for research purposes.
+ *  Project tracks flights around the top 40 Airports in the U.S.
+ *  Uses real-time location of airplanes to find planes within 20 miles
+ *  of each airport to determine the number of flights current leaving
+ *  or incoming to each airport. Project receives data from the
+ *  Open Sky Network for research purposes.
  *
- *  Project makes use of Apache Spark to expedite data processing.
+ *  Project implemented in Apache Storm to expedite data processing.
  */
 
 import bolts.AirlineSorter;
@@ -28,8 +29,11 @@ import bolts.HubIdentifier;
  */
 public class TopologyMain {
     /**
-     * @param args - [0] The flight data.
-     *             - [1] The airport list.
+     * @param args - [0] The flight data. Pull from 'get_flights_data.sh'
+     *
+     *             - [1] The airport list. Dataset of the top 40 US airports.
+     *      *            Includes each airport's city name, IATA code,
+     *      *            latitude and longitude.
      */
     public static void main(String[] args)  {
         TopologyBuilder builder = new TopologyBuilder();

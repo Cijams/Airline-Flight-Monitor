@@ -20,41 +20,70 @@ import java.util.Map;
  */
 public class FlightsDataReader extends BaseRichSpout {
     private SpoutOutputCollector collector;
-    private String msg = "";
-    private static int counter = 0;
     private JSONArray flight;
-    private Object obj;
+
+    private static int counter = 0;
 
     public FlightsDataReader() {}
 
+    public void close() {}
+
+    /**
+     * Acknowledgment from spout if successful.
+     *
+     * @param msgID status response from topology.
+     */
     public void ack(Object msgID) {
         System.out.println("OK: " + msgID);
     }
 
-    public void close() {}
-
+    /**
+     * Acknowledgment from spout if failed.
+     *
+     * @param msgID status response from topology.
+     */
     public void fail(Object msgID) {
         System.out.println("FAIL: " + msgID);
     }
 
+    /**
+     * Used to establish what the spouts output will be.
+     *
+     * @param declarer output field.
+     */
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
         declarer.declare(new Fields("JSON"));
     }
 
+    /**
+     * Establishes class local context of the topology.
+     *
+     * @param config The topology configuration established in TopologyMain
+     * @param context Stored datafields within the Topology.
+     * @param spoutOutputCollector Used to establish which bolt to emit too.
+     */
     public void open(Map config, TopologyContext context, SpoutOutputCollector spoutOutputCollector) {
         collector = spoutOutputCollector;
         try {
-            obj = new JSONParser().parse(new FileReader((config.get("FlightsData").toString())));
+            Object obj = new JSONParser().parse(new FileReader((config.get("FlightsData").toString())));
             JSONObject jo = (JSONObject) obj;
             flight = (JSONArray) jo.get("states");
-        } catch (Exception e ) {
+        } catch (FileNotFoundException fnf) {
+            fnf.printStackTrace();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Data stream that is distributed to each instance of
+     * HubIdentifier indefinitely.
+     */
     public void nextTuple() {
         Utils.sleep(1000);
-        msg = flight.get(counter++)+"";
+        String msg = flight.get(counter++)+"";
         collector.emit(new Values(msg));
     }
 }
