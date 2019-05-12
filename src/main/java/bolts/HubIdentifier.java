@@ -30,7 +30,7 @@ public class HubIdentifier extends BaseBasicBolt {
     /**
      * Prepares the file to be parsed by execute().
      *
-     * @param stormConf The topology configuration established in TopologyMain
+     * @param stormConf The topology configuration established in TopologyMain.
      */
     private void prepareFile(Map stormConf) {
         String air;

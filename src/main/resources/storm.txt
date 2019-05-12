@@ -1,55 +1,49 @@
-Chicago MDW UAL
-Phoenix PHX N35
-Atlanta ATL SWA
-Chicago MDW UAL
-San Diego SAN N95
-Houston IAH AAL
-Seattle SEA N95
-San Diego SAN AAL
-Dallas-Fort Worth DFW UAL
-Philadelphia PHL DLH
-Houston IAH DLH
-New York JFK SWR
-Houston IAH UAL
-Orlando MCO N7Z
-Los Angeles LAX ANA
-Los Angeles LAX AAL
-Kansas City MCI N40
-Fort Lauderdale FLL JBU
-Phoenix PHX SWA
-Seattle SEA N23
-San Francisco SFO DAL
-Newark EWR EDV
-Las Vegas LAS N91
-Minneapolis MSP SKW
-Phoenix PHX SWA
-Miami MIA N13
-Nashville BNA JIA
-Minneapolis MSP N63
-Charlotte CLT AAL
-Detroit DTW FDX
-New York JFK DAL
-Seattle SEA QXE
-Denver DEN UAL
-Seattle SEA DLH
-Denver DEN SKW
-Fort Lauderdale FLL NKS
-Las Vegas LAS AAL
-Honolulu HNL N11
-Tampa TPA AAL
-Charlotte CLT AAL
-Fort Lauderdale FLL NKS
-Honolulu HNL N11
-Chicago MDW UAL
-Fort Lauderdale FLL SWA
-Orlando MCO SWA
-Sacramento SMF SWA
-Philadelphia PHL ASH
-Newark EWR UAL
-Denver DEN SWA
-Honolulu HNL JAL
-Las Vegas LAS N23
-San Diego SAN AAL
-Austin AUS SWA
-Raleigh/Durham RDU DAL
-Fort Lauderdale FLL N17
+Seattle {SEA=2}
+Atlanta {ATL=1}
+Orlando {MCO=1}
+Fort Lauderdale {FLL=2}
+Los Angeles {LAX=1}
+Denver {DEN=1}
+Newark {EWR=1}
+Philadelphia {PHL=1}
+San Diego {SAN=1}
+Minneapolis {MSP=1}
+Seattle {SEA=1}
+Las Vegas {LAS=1}
+New York {JFK=2}
+Charlotte {CLT=1}
+Chicago {MDW=1}
+Fort Lauderdale {FLL=2}
+Honolulu {HNL=1}
+Phoenix {PHX=1}
+Los Angeles {LAX=1}
+Denver {DEN=1}
+Austin {AUS=1}
+Philadelphia {PHL=1}
+San Diego {SAN=1}
+Detroit {DTW=1}
+Charlotte {CLT=1}
+Raleigh/Durham {RDU=1}
+Minneapolis {MSP=1}
+Chicago {MDW=1}
+Fort Lauderdale {FLL=1}
+Honolulu {HNL=1}
+Phoenix {PHX=1}
+Nashville {BNA=1}
+Denver {DEN=1}
+Kansas City {MCI=1}
+San Diego {SAN=1}
+Sacramento {SMF=1}
+Seattle {SEA=1}
+Orlando {MCO=1}
+Newark {EWR=1}
+Tampa {TPA=1}
+Las Vegas {LAS=2}
+Houston {IAH=1}
+San Francisco {SFO=1}
+Chicago {MDW=1}
+Honolulu {HNL=1}
+Dallas-Fort Worth {DFW=1}
+Phoenix {PHX=1}
+Houston {IAH=2}
+Miami {MIA=1}
