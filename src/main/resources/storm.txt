@@ -1,49 +1,105 @@
-Seattle {SEA=2}
-Atlanta {ATL=1}
-Orlando {MCO=1}
-Fort Lauderdale {FLL=2}
-Los Angeles {LAX=1}
-Denver {DEN=1}
-Newark {EWR=1}
-Philadelphia {PHL=1}
-San Diego {SAN=1}
-Minneapolis {MSP=1}
-Seattle {SEA=1}
-Las Vegas {LAS=1}
-New York {JFK=2}
-Charlotte {CLT=1}
-Chicago {MDW=1}
-Fort Lauderdale {FLL=2}
-Honolulu {HNL=1}
-Phoenix {PHX=1}
-Los Angeles {LAX=1}
-Denver {DEN=1}
-Austin {AUS=1}
-Philadelphia {PHL=1}
-San Diego {SAN=1}
-Detroit {DTW=1}
-Charlotte {CLT=1}
-Raleigh/Durham {RDU=1}
-Minneapolis {MSP=1}
-Chicago {MDW=1}
-Fort Lauderdale {FLL=1}
-Honolulu {HNL=1}
-Phoenix {PHX=1}
-Nashville {BNA=1}
-Denver {DEN=1}
-Kansas City {MCI=1}
-San Diego {SAN=1}
-Sacramento {SMF=1}
-Seattle {SEA=1}
-Orlando {MCO=1}
-Newark {EWR=1}
-Tampa {TPA=1}
-Las Vegas {LAS=2}
-Houston {IAH=1}
-San Francisco {SFO=1}
-Chicago {MDW=1}
-Honolulu {HNL=1}
-Dallas-Fort Worth {DFW=1}
-Phoenix {PHX=1}
-Houston {IAH=2}
-Miami {MIA=1}
+Seattle {N95=1}
+Seattle {DLH=1}
+Seattle {N23=1, QXE=1}
+San Francisco:
+{DAL=1}
+San Diego:
+{AAL=1}
+Atlanta:
+{SWA=1}
+Fort Lauderdale:
+{N17=1, NKS=2, JBU=1}
+Phoenix:
+{N35=1}
+Newark:
+{EDV=1}
+Nashville:
+{JIA=1}
+Denver:
+{SWA=1}
+Las Vegas:
+{N91=1}
+San Francisco:
+{UAL=1}
+Kansas City:
+{N40=1}
+San Diego:
+{N95=1}
+Minneapolis:
+{N63=1}
+Orlando:
+{SWA=1}
+Los Angeles:
+{AAL=1}
+Las Vegas:
+{AAL=1}
+Charlotte:
+{JIA=1}
+Seattle:
+{N23=1, QXE=1}
+Chicago:
+{UAL=1}
+Phoenix:
+{SWA=1}
+Denver:
+{SKW=1}
+Newark:
+{UAL=1}
+Austin:
+{SWA=1}
+New York:
+{SWR=1}
+Detroit:
+{FDX=1}
+Seattle:
+{N95=1}
+Minneapolis:
+{SKW=1}
+Orlando:
+{N7Z=1}
+Honolulu:
+{N11=1}
+Dallas-Fort Worth:
+{UAL=1}
+Phoenix:
+{SWA=1}
+Denver:
+{UAL=1}
+Philadelphia:
+{DLH=1}
+Miami:
+{N13=1}
+New York:
+{DAL=1}
+Charlotte:
+{AAL=1}
+Raleigh/Durham:
+{DAL=1}
+Seattle:
+{DLH=1}
+Chicago:
+{UAL=1}
+Fort Lauderdale:
+{SWA=1}
+Los Angeles:
+{ANA=1}
+Houston:
+{AAL=1}
+Charlotte:
+{AAL=1}
+San Diego:
+{AAL=1}
+Sacramento:
+{SWA=1}
+Chicago:
+{UAL=1}
+Honolulu:
+{JAL=1, N11=1}
+Tampa:
+{AAL=1}
+Philadelphia:
+{ASH=1}
+Las Vegas:
+{N23=1}
+Houston:
+{DLH=1, UAL=1}

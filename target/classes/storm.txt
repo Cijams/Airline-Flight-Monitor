@@ -1,0 +1,3 @@
+Seattle {N95=1}
+Seattle {DLH=1}
+Seattle {N23=1, QXE=1}
