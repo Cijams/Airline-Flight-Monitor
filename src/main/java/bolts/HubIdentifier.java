@@ -12,6 +12,7 @@ import org.apache.storm.topology.base.BaseBasicBolt;
 import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Tuple;
 import org.apache.storm.tuple.Values;
+
 import java.io.*;
 import java.util.Map;
 
@@ -21,13 +22,15 @@ import java.util.Map;
 public class HubIdentifier extends BaseBasicBolt {
     private String[] airports = new String[40];
 
-    public void cleanup() { }
+    public void cleanup() {
+    }
 
-    public void prepare(Map stormConf, TopologyContext context){
+    public void prepare(Map stormConf, TopologyContext context) {
         prepareFile(stormConf);
     }
 
     /**
+     * First bolt receiving input from FlightsDataReader.
      * Prepares the file to be parsed by execute().
      *
      * @param stormConf The topology configuration established in TopologyMain.
@@ -59,7 +62,7 @@ public class HubIdentifier extends BaseBasicBolt {
      * current flight within the node. If distance is less than 20
      * miles, information forwarded to AirlineSorter.
      *
-     * @param tuple The incoming data from spout: FlightsDataReader.
+     * @param tuple     The incoming data from spout: FlightsDataReader.
      * @param collector Topology information and object used to emit data.
      */
     public void execute(Tuple tuple, BasicOutputCollector collector) {
@@ -81,7 +84,7 @@ public class HubIdentifier extends BaseBasicBolt {
             FileWriter fw = new FileWriter(file.getAbsoluteFile(), true);
             BufferedWriter bw = new BufferedWriter(fw);
 
-            for(int i = 0; i < 40; i++) {
+            for (int i = 0; i < 40; i++) {
                 String[] data = airports[i].split(",");
                 airportCity = data[0];
                 airportCode = data[1];
@@ -91,9 +94,9 @@ public class HubIdentifier extends BaseBasicBolt {
                 if (calculateDistance(planeLatitude, planeLongitude, airportLatitude, airportsLongitude) <= 20) {
                     if (callSign.length() > 2)
                         collector.emit(new Values(airportCity, airportCode, callSign));
-                        break;
+                    break;
                 }
-           }
+            }
             bw.close();
         } catch (Exception e) {
             e.printStackTrace();
@@ -113,11 +116,11 @@ public class HubIdentifier extends BaseBasicBolt {
      * Calculates the distance between two points on the globe given
      * both latitude and longitude.
      *
-     * @param latitude1S     The latitude of the airplane.
-     * @param longitude1S    The longitude of the airplane.
-     * @param latitude2S     The latitude of the airport.
-     * @param longitude2S    The longitude of the airport.
-     * @return               The absolute distance in calculateDistance.
+     * @param latitude1S  The latitude of the airplane.
+     * @param longitude1S The longitude of the airplane.
+     * @param latitude2S  The latitude of the airport.
+     * @param longitude2S The longitude of the airport.
+     * @return The absolute distance in calculateDistance.
      */
     private static double calculateDistance(String latitude1S, String longitude1S,
                                             String latitude2S, String longitude2S) {

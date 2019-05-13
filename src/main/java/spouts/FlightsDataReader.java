@@ -15,23 +15,19 @@ import org.apache.storm.topology.base.BaseRichSpout;
 import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Values;
 import org.apache.storm.utils.Utils;
+
 import java.io.*;
 import java.util.Map;
 
 /**
- * Apache Spark Spout. Reads data from flights.txt in JSON
+ * Apache Storm Spout. Reads data from flights.txt in JSON
  * format and prepares the information to be passed to the
  * first bolt.
  */
 public class FlightsDataReader extends BaseRichSpout {
     private SpoutOutputCollector collector;
     private JSONArray flight;
-
-    private static int counter = 0;
-
-    public FlightsDataReader() {}
-
-    public void close() {}
+    private static int flightCounter = 0;
 
     /**
      * Acknowledgment from spout if successful.
@@ -54,17 +50,17 @@ public class FlightsDataReader extends BaseRichSpout {
     /**
      * Used to establish spout output within the topology.
      *
-     * @param declarer output field.
+     * @param declarer output field for processing.
      */
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
         declarer.declare(new Fields("JSON"));
     }
 
     /**
-     * Establishes class local context of the topology.
+     * Reads flight data to for processing and establishes local context of the topology.
      *
-     * @param config The topology configuration established in TopologyMain
-     * @param context Stored datafields within the Topology.
+     * @param config               The topology configuration established in TopologyMain.
+     * @param context              Stored datafields within the Topology.
      * @param spoutOutputCollector Used to establish which bolt to emit too.
      */
     public void open(Map config, TopologyContext context, SpoutOutputCollector spoutOutputCollector) {
@@ -88,6 +84,6 @@ public class FlightsDataReader extends BaseRichSpout {
      */
     public void nextTuple() {
         Utils.sleep(75);
-        collector.emit(new Values(flight.get(counter++)+""));
+        collector.emit(new Values(flight.get(flightCounter++) + ""));
     }
 }
