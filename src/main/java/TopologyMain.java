@@ -20,22 +20,25 @@ import spouts.FlightsDataReader;
 import bolts.HubIdentifier;
 
 /**
- *  Determines the topology of the the Apache Spark network.
- *
- *  Current Layout:
- *      Spout: FlightsDataReader reads data from "flights.txt" and emits to Bolt: HubIdentifier.
- *      Bolt: HubIdentifier reads from Spout: FlightDataReader and emits to Bolt: AirlineSorter.
- *      Bolt: AirlineSorter reads from Bolt: HubIdentifier and closes.
+ * Determines the topology of the the Apache Spark network.
+ * <p>
+ * Current Layout:
+ * Spout: FlightsDataReader reads data from "flights.txt" and emits to Bolt: HubIdentifier.
+ * <p>
+ * Bolt: HubIdentifier reads from "airports.text" and Spout: FlightDataReader then
+ * emits to Bolt: AirlineSorter.
+ * <p>
+ * Bolt: AirlineSorter reads from Bolt: HubIdentifier then writes flights to file "storm.txt".
  */
 public class TopologyMain {
     /**
      * @param args - [0] The flight data. Pull from 'get_flights_data.sh'
-     *
+     *             <p>
      *             - [1] The airport list. Dataset of the top 40 US airports.
-     *                   Includes each airport's city name, IATA code,
-     *                   latitude and longitude.
+     *             Includes each airport's city name, IATA code,
+     *             latitude and longitude.
      */
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
         TopologyBuilder builder = new TopologyBuilder();
         builder.setSpout("flight-data-reader", new FlightsDataReader(), 3);
         builder.setBolt("hub-identifier", new HubIdentifier(), 6)
@@ -53,9 +56,8 @@ public class TopologyMain {
         // Currently set for local cluster.
         LocalCluster cluster = new LocalCluster();
         cluster.submitTopology("Flight-Process", config, builder.createTopology());
-        Utils.sleep(25000);
+        Utils.sleep(15000);
         cluster.killTopology("Flight-Process");
         cluster.shutdown();
-
     }
 }

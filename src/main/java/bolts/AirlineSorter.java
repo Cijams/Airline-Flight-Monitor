@@ -1,10 +1,16 @@
 package bolts;
 
+/*
+ *  Christopher Ijams
+ *  AirlineSorter
+ */
+
 import org.apache.storm.task.TopologyContext;
 import org.apache.storm.topology.BasicOutputCollector;
 import org.apache.storm.topology.OutputFieldsDeclarer;
 import org.apache.storm.topology.base.BaseBasicBolt;
 import org.apache.storm.tuple.Tuple;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -16,13 +22,10 @@ import java.util.Map;
  */
 public class AirlineSorter extends BaseBasicBolt {
     private Map<String, Map<String, Integer>> counter;
-    File file;
-    FileWriter fw;
-    BufferedWriter bw;
 
     /**
      * Called after the localCluster has shutdown.
-     *
+     * <p>
      * Prints out the dataset as needed.
      */
     public void cleanup() {
@@ -30,27 +33,29 @@ public class AirlineSorter extends BaseBasicBolt {
             File file = new File("src/main/resources/storm.txt");
             FileWriter fw = new FileWriter(file.getCanonicalFile(), true);
             BufferedWriter bw = new BufferedWriter(fw);
-            String test = ""; //counter.entrySet().toString();
+            StringBuilder outputString = new StringBuilder();
 
-            for(Map.Entry<String, Map<String, Integer>> entry : counter.entrySet())
-                test += entry.getKey()+":\n"+entry.getValue() + "\n";
+            for (Map.Entry<String, Map<String, Integer>> entry : counter.entrySet())
+                outputString.append("At airport: ").append(entry.getKey()).append(":\n").append(entry.getValue()).append("\n");
+            // outputString.append("At airport: " + entry.getKey()+":\n"+entry.getValue() + "\n");
 
-            System.out.println(test);
-            bw.write(test);
+            System.out.println(outputString);
+            bw.write(outputString.toString());
             bw.flush();
             bw.close();
-        } catch (Exception e ) {
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     /**
      * Initialize "counter" to a map in the form of:
-     *
+     * <p>
      * Airport:
-     *      Airline: Occurrence
+     * Airline: Occurrence
      *
-     * @param stormConf The topology configuration established in TopologyMain
-     * @param context Stored datafields within the Topology
+     * @param stormConf The topology configuration established in TopologyMain.
+     * @param context   Stored datafields within the Topology.
      */
     public void prepare(Map stormConf, TopologyContext context) {
         this.counter = new HashMap<String, Map<String, Integer>>();
@@ -58,30 +63,33 @@ public class AirlineSorter extends BaseBasicBolt {
 
     /**
      * Maps the data to the nested map for print out.
-     * @param tuple The incoming data.
+     *
+     * @param tuple     The incoming data.
      * @param collector Data for processing.
      */
     public void execute(Tuple tuple, BasicOutputCollector collector) {
         try {
             String city = tuple.getString(0);
-            String code = tuple.getString(1);
-            String callSign = tuple.getString(2).substring(1,4);
+            String callSign = tuple.getString(2).substring(1, 4);
 
-            if(counter.get(city+"") == null) {
+            if (counter.get(city + "") == null) {
                 counter.put(city, new HashMap<String, Integer>());
-                counter.get(city+"").put(callSign, 1);
+                counter.get(city + "").put(callSign, 1);
+            } else if (counter.get(city).get(callSign) == null) {
+                counter.get(city + "").put(callSign, 1);
+            } else {
+                counter.get(city + "").put(callSign, counter.get(city).get(callSign) + 1);
             }
-
-            else if(counter.get(city).get(callSign) == null) {
-                counter.get(city+"").put(callSign, 1);
-            }
-            else {
-                counter.get(city+"").put(callSign, counter.get(city).get(callSign)+1);
-            }
-            } catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void declareOutputFields(OutputFieldsDeclarer declarer) { }
+    /**
+     * No output from last bolt.
+     *
+     * @param declarer output field.
+     */
+    public void declareOutputFields(OutputFieldsDeclarer declarer) {
+    }
 }

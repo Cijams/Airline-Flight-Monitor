@@ -1,3 +1,52 @@
-Seattle {N95=1}
-Seattle {DLH=1}
-Seattle {N23=1, QXE=1}
+At airport: Kansas City:
+{N40=1}
+At airport: Chicago:
+{UAL=1}
+At airport: Newark:
+{EDV=1}
+At airport: Chicago:
+{UAL=1}
+At airport: Phoenix:
+{N35=1}
+At airport: Houston:
+{DLH=1}
+At airport: San Francisco:
+{DAL=1}
+At airport: Seattle:
+{N23=1}
+At airport: Minneapolis:
+{SKW=1}
+At airport: Atlanta:
+{SWA=1}
+At airport: Phoenix:
+{SWA=2}
+At airport: Los Angeles:
+{ANA=1}
+At airport: Philadelphia:
+{DLH=1}
+At airport: Houston:
+{AAL=1}
+At airport: New York:
+{SWR=1}
+At airport: San Diego:
+{N95=1}
+At airport: Fort Lauderdale:
+{JBU=1}
+At airport: Los Angeles:
+{AAL=1}
+At airport: Las Vegas:
+{N91=1}
+At airport: San Diego:
+{AAL=1}
+At airport: Seattle:
+{N95=1}
+At airport: Dallas-Fort Worth:
+{UAL=1}
+At airport: Nashville:
+{JIA=1}
+At airport: Orlando:
+{N7Z=1}
+At airport: Houston:
+{UAL=1}
+At airport: Miami:
+{N13=1}

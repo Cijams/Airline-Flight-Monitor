@@ -1,105 +1,114 @@
-Seattle {N95=1}
-Seattle {DLH=1}
-Seattle {N23=1, QXE=1}
-San Francisco:
-{DAL=1}
-San Diego:
-{AAL=1}
-Atlanta:
-{SWA=1}
-Fort Lauderdale:
-{N17=1, NKS=2, JBU=1}
-Phoenix:
-{N35=1}
-Newark:
-{EDV=1}
-Nashville:
-{JIA=1}
-Denver:
-{SWA=1}
-Las Vegas:
-{N91=1}
-San Francisco:
-{UAL=1}
-Kansas City:
+At airport: Kansas City:
 {N40=1}
-San Diego:
-{N95=1}
-Minneapolis:
-{N63=1}
-Orlando:
-{SWA=1}
-Los Angeles:
-{AAL=1}
-Las Vegas:
-{AAL=1}
-Charlotte:
-{JIA=1}
-Seattle:
-{N23=1, QXE=1}
-Chicago:
+At airport: Chicago:
 {UAL=1}
-Phoenix:
-{SWA=1}
-Denver:
-{SKW=1}
-Newark:
+At airport: Newark:
+{EDV=1}
+At airport: Chicago:
 {UAL=1}
-Austin:
-{SWA=1}
-New York:
-{SWR=1}
-Detroit:
-{FDX=1}
-Seattle:
-{N95=1}
-Minneapolis:
-{SKW=1}
-Orlando:
-{N7Z=1}
-Honolulu:
-{N11=1}
-Dallas-Fort Worth:
-{UAL=1}
-Phoenix:
-{SWA=1}
-Denver:
-{UAL=1}
-Philadelphia:
+At airport: Phoenix:
+{N35=1}
+At airport: Houston:
 {DLH=1}
-Miami:
-{N13=1}
-New York:
+At airport: San Francisco:
 {DAL=1}
-Charlotte:
-{AAL=1}
-Raleigh/Durham:
-{DAL=1}
-Seattle:
-{DLH=1}
-Chicago:
-{UAL=1}
-Fort Lauderdale:
-{SWA=1}
-Los Angeles:
-{ANA=1}
-Houston:
-{AAL=1}
-Charlotte:
-{AAL=1}
-San Diego:
-{AAL=1}
-Sacramento:
-{SWA=1}
-Chicago:
-{UAL=1}
-Honolulu:
-{JAL=1, N11=1}
-Tampa:
-{AAL=1}
-Philadelphia:
-{ASH=1}
-Las Vegas:
+At airport: Seattle:
 {N23=1}
-Houston:
-{DLH=1, UAL=1}
+At airport: Minneapolis:
+{SKW=1}
+At airport: Atlanta:
+{SWA=1}
+At airport: Phoenix:
+{SWA=2}
+At airport: Los Angeles:
+{ANA=1}
+At airport: Philadelphia:
+{DLH=1}
+At airport: Houston:
+{AAL=1}
+At airport: New York:
+{SWR=1}
+At airport: San Diego:
+{N95=1}
+At airport: Fort Lauderdale:
+{JBU=1}
+At airport: Los Angeles:
+{AAL=1}
+At airport: Las Vegas:
+{N91=1}
+At airport: San Diego:
+{AAL=1}
+At airport: Seattle:
+{N95=1}
+At airport: Dallas-Fort Worth:
+{UAL=1}
+At airport: Nashville:
+{JIA=1}
+At airport: Orlando:
+{N7Z=1}
+At airport: Houston:
+{UAL=1}
+At airport: Miami:
+{N13=1}
+At airport: San Diego:
+{AAL=1}
+At airport: Charlotte:
+{AAL=1}
+At airport: Minneapolis:
+{SKW=1}
+At airport: Dallas-Fort Worth:
+{UAL=1}
+At airport: Phoenix:
+{SWA=1}
+At airport: Las Vegas:
+{N91=1}
+At airport: Houston:
+{UAL=1}
+At airport: San Diego:
+{N95=1}
+At airport: Seattle:
+{N95=1}
+At airport: Minneapolis:
+{N63=1}
+At airport: Los Angeles:
+{ANA=1}
+At airport: Houston:
+{DLH=1}
+At airport: Miami:
+{N13=1}
+At airport: Kansas City:
+{N40=1}
+At airport: Orlando:
+{N7Z=1}
+At airport: Phoenix:
+{SWA=1}
+At airport: Newark:
+{EDV=1}
+At airport: Nashville:
+{JIA=1}
+At airport: Philadelphia:
+{DLH=1}
+At airport: Miami:
+{N13=1}
+At airport: San Francisco:
+{DAL=1}
+At airport: New York:
+{SWR=1}
+At airport: Seattle:
+{N23=1}
+At airport: Chicago:
+{UAL=1}
+At airport: Fort Lauderdale:
+{JBU=1}
+At airport: Phoenix:
+{N35=1}
+At airport: Los Angeles:
+{AAL=1}
+At airport: Houston:
+{AAL=1}
+At airport: Chicago:
+{UAL=1}
+At airport: Atlanta:
+{SWA=1}
+At airport: Dallas-Fort Worth:
+{UAL=1}
