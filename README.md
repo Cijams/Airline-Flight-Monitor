@@ -3,5 +3,5 @@ Apache Storm implementation of real-time flight monitor for top 40 airfields in 
 
 <hr>
 
-This project analyzes real time data streams provided by the open OpenSky Network.
+This project analyzes real time data provided by the open OpenSky Network.
 
